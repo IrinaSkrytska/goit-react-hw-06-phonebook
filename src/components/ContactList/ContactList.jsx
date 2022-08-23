@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import Contact from 'components/Contact/Contact';
 import css from './ContactList.module.css';
 import { useSelector } from 'react-redux';
+import * as counterSelectors from '../../redux/selectors';
 
 const ContactList = () => {
-  const contacts = useSelector(state => state.phonebook.contacts.items);
-  const filter = useSelector(state => state.phonebook.contacts.filter);
+  const contacts = useSelector(counterSelectors.contacts);
+  const filter = useSelector(counterSelectors.filter);
 
   const checkedContacts = filter
     ? contacts.filter(({ name }) =>
