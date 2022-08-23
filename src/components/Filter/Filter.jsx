@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
 import css from './Filter.module.css';
 import { useDispatch } from 'react-redux';
 import { findContact } from 'redux/phonebookSlice';
 
-const Filter = ({ value }) => {
+const Filter = () => {
   const dispatch = useDispatch();
 
   return (
@@ -14,16 +13,11 @@ const Filter = ({ value }) => {
           className={css.filter__input}
           type="text"
           name="filter"
-          value={value}
           onChange={e => dispatch(findContact(e.currentTarget.value))}
         />
       </label>
     </div>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
 };
 
 export default Filter;
